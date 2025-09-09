@@ -730,3 +730,107 @@ form textarea {
     padding: 10px 15px;
   }
 }
+h1{
+  text-align: center;
+  margin:0 0 6px;
+  font-size:32px;
+  letter-spacing:.3px;
+  text-shadow:0 0 10px rgba(207,13,13,.35);
+}
+.sub{
+  text-align: center;
+  color:var(--muted);
+  margin-bottom:22px;
+  font-size:14px;
+}
+
+/* selector */
+.currency-select{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  justify-content:center;
+  margin:14px 0 26px;
+}
+.currency-select label{
+  font-weight:600;
+  color:#ffdada;
+}
+select{
+  background:var(--panel);
+  color:var(--ink);
+  border:1px solid var(--border);
+  padding:10px 14px;
+  border-radius:10px;
+  outline:none;
+}
+select:focus{
+  border-color:var(--red);
+  box-shadow:0 0 0 4px rgba(207,13,13,.15);
+}
+
+/* 2-column grid, last item centers if odd count */
+.plans{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(260px,1fr));
+  gap:18px;
+  max-width:1000px;
+  margin:26px auto 0;
+}
+.card{
+  background:linear-gradient(180deg, rgba(255,59,59,.08), rgba(207,13,13,.06));
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:20px;
+  box-shadow:0 12px 30px rgba(0,0,0,.25);
+  transition:.2s transform, .25s box-shadow, .25s border-color;
+}
+.card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(207,13,13,.35);
+  box-shadow:0 16px 40px rgba(207,13,13,.15);
+}
+.card h2{
+  margin:0 0 8px;
+  font-size:20px;
+  color:#ffd1d1;
+}
+.service{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:10px 12px;
+  margin-top:8px;
+  background:rgba(255,255,255,.03);
+  border:1px dashed rgba(207,13,13,.25);
+  border-radius:12px;
+}
+.price {
+  font-weight: bold;
+  letter-spacing: .3px;
+  background: linear-gradient(90deg, #cf0d0d, #ff3b3b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* Zaroori */
+  background-clip: text;
+  color: transparent; /* fallback */
+}
+
+
+/* if total cards are odd, center the very last one */
+.plans > .card:nth-last-child(1):nth-child(odd){
+  grid-column:1 / -1;
+  justify-self:center;
+  max-width:560px;
+  width:100%;
+}
+
+/* mobile: 1 column */
+@media (max-width:640px){
+  .plans{ grid-template-columns:1fr; }
+  .plans > .card:nth-last-child(1):nth-child(odd){
+    grid-column:auto;
+    justify-self:stretch;
+    max-width:none;
+  }
+}
